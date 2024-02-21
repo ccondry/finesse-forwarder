@@ -21,9 +21,9 @@ else
       if [ $? -eq 0 ]; then
         echo "npm build successful"
         echo "removing old web files"
-        rm -rf /var/www/toolbox/finesse-forwarder/*
+        rm -rf /var/www/html/finesse-forwarder/*
         echo "copying new web files"
-        cp -rf dist/* /var/www/toolbox/finesse-forwarder/
+        cp -rf dist/* /var/www/html/finesse-forwarder/
         echo "update successful"
       else
         echo "npm failed to run build script"
