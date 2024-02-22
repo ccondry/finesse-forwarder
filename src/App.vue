@@ -34,7 +34,7 @@
 
       <!-- output -->
       <div v-show="link" style="color: red;">
-      <a :href="link" target="_blank">{{ link }}</a>
+      <a :href="link" target="_blank" rel="noopener noreferrer">{{ link }}</a>
     </div>
     </div>
 
