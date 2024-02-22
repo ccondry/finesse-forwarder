@@ -28,9 +28,14 @@
       <!-- Submit button -->
       <div style="display: flex; justify-content: center;">
         <button @click="submit">
-          Go to VPN-less Finesse Desktop
+          Get Link to Finesse
         </button>
       </div>
+
+      <!-- output -->
+      <div v-show="link" style="color: red;">
+      <a :href="link" target="_blank">{{ link }}</a>
+    </div>
     </div>
 
     <div v-show="error" style="color: red;">
@@ -43,6 +48,7 @@
 export default {
   data () {
     return {
+      link: null,
       form: {
         datacenter: 'RTP',
         sessionId: '',
@@ -67,7 +73,7 @@ export default {
         const response = await fetch(url, options);
         if (response.ok) {
           const json = await response.json();
-          window.location = `https://${json.dns3}:8445/desktop/`
+          this.link = `https://${json.dns3}:8445/desktop/`
         } else {
           this.error = await response.text();
         }
