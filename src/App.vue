@@ -1,6 +1,20 @@
 <template>
-    <Message title="Multichannel Configuration">
+  <Message title="Multichannel Configuration">
     <Field label="Choose your multichannel system:">
+      <!-- datacenter -->
+      <div>
+        <strong>Data Center:</strong>
+        &nbsp;
+        <select v-model="form.datacenter" style="background-color: var(--color-background);">
+          <option
+          v-for="option of options"
+          :key="option.value"
+          :value="option.value"
+          >
+            {{ option.label }}
+          </option>
+        </select>
+      </div>
     </Field>
   </Message>
 
