@@ -1,11 +1,16 @@
 <template>
+    <Message title="Multichannel Configuration">
+    <Field label="Choose your multichannel system:">
+    </Field>
+  </Message>
+
   <div
   style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 100vh;"
   >
     <div style="display: flex; flex-direction: column; gap: 1rem;">
       <!-- datacenter -->
       <div>
-        <strong>Datacenter:</strong>
+        <strong>Data Center:</strong>
         &nbsp;
         <select v-model="form.datacenter" style="background-color: var(--color-background);">
           <option
