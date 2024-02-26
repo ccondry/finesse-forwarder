@@ -25,13 +25,8 @@
         <!-- Submit button -->
         <div style="display: flex; justify-content: center;">
           <Button @click="submit">
-            Get Link to Finesse
+            Go to VPN-Less Finesse Desktop
           </Button>
-        </div>
-
-        <!-- output -->
-        <div v-show="link" style="color: red;">
-          <a :href="link" target="_blank" rel="noopener noreferrer">{{ link }}</a>
         </div>
       </div>
 
@@ -46,7 +41,6 @@
 export default {
   data () {
     return {
-      link: null,
       form: {
         datacenter: 'RTP',
         sessionId: '',
@@ -71,7 +65,11 @@ export default {
         const response = await fetch(url, options);
         if (response.ok) {
           const json = await response.json();
-          this.link = `https://${json.dns3}:8445/desktop/`
+          const link = `https://${json.dns3}:8445/desktop/`;
+          // use _self instead of _blank to open in same browser tab
+          window.open(link, '_blank', 'noopener, noreferrer');
+          // remove any previous error
+          this.error = null;
         } else {
           this.error = await response.text();
         }
