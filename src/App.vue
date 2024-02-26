@@ -1,6 +1,6 @@
 <template>
   <Message title="VPN-Less Access to Finesse Desktop">
-    <!-- <Field label="Choose your multichannel system:"> -->
+    <Field label="Choose your multichannel system:">
       <div style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 100vh;">
         <div style="display: flex; flex-direction: column; gap: 1rem;">
           <!-- datacenter -->
@@ -42,7 +42,7 @@
           <strong>Error:</strong> {{ error }}
         </div>
       </div>
-    <!-- </Field> -->
+    </Field>
   </Message>
 
   <div
