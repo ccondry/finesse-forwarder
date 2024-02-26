@@ -245,3 +245,27 @@ strong {
 /* .mdi {
   font-size: 24px;
 } */
+
+select {
+  background-color: var(--color-background);
+}
+
+.field-group {
+  display: grid;
+  /* First column for labels, second for fields */
+  grid-template-columns: repeat(2, 6rem, 8rem);
+  /* Adjust the gap size as needed */
+  gap: 10px;
+  /* align label vertically */
+  align-items: center;
+}
+
+label {
+  /* Aligns the label to the right side, close to the input field */
+  justify-self: end;
+}
+
+.field-content {
+  /* Makes the input field take up the remaining space */
+  width: 100%;
+}

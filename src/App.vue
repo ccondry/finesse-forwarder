@@ -1,12 +1,13 @@
 <template>
   <div style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 100vh;">
     <Message title="VPN-Less Access to Finesse Desktop">
-        <div style="display: flex; flex-direction: column; gap: 1rem;">
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <div class="field-group">
           <!-- datacenter -->
-          <div>
-            <strong>Data Center:</strong>
-            &nbsp;
-            <select v-model="form.datacenter" style="background-color: var(--color-background);">
+          <Field label="Data Center:">
+            <Select
+            v-model="form.datacenter"
+            >
               <option
               v-for="option of options"
               :key="option.value"
@@ -14,32 +15,31 @@
               >
                 {{ option.label }}
               </option>
-            </select>
-          </div>
-
+            </Select>
+          </Field>
+  
           <!-- Session ID -->
-          <div>
-            <strong>Session ID:</strong>
-            &nbsp;
+          <Field label="Session ID:">
             <input type="text" v-model="form.sessionId" />
-          </div>
-
-          <!-- Submit button -->
-          <div style="display: flex; justify-content: center;">
-            <button @click="submit">
-              Get Link to Finesse
-            </button>
-          </div>
-
-          <!-- output -->
-          <div v-show="link" style="color: red;">
-            <a :href="link" target="_blank" rel="noopener noreferrer">{{ link }}</a>
-          </div>
+          </Field>
         </div>
 
-        <div v-show="error" style="color: red;">
-          <strong>Error:</strong> {{ error }}
+        <!-- Submit button -->
+        <div style="display: flex; justify-content: center;">
+          <Button @click="submit">
+            Get Link to Finesse
+          </Button>
         </div>
+
+        <!-- output -->
+        <div v-show="link" style="color: red;">
+          <a :href="link" target="_blank" rel="noopener noreferrer">{{ link }}</a>
+        </div>
+      </div>
+
+      <div v-show="error" style="color: red;">
+        <strong>Error:</strong> {{ error }}
+      </div>
     </Message>
   </div>
 </template>

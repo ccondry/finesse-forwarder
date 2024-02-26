@@ -1,9 +1,7 @@
 <template>
-  <div class="field">
-    <label v-if="label">{{ label }}</label>
-    <div class="field-content" :class="{ grouped }">
-      <slot></slot>
-    </div>
+  <label v-if="label" :for="id">{{ label }}</label>
+  <div class="field-content" :class="{ grouped }">
+    <slot></slot>
   </div>
 </template>
 
