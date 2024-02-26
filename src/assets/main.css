@@ -43,9 +43,9 @@ a {
 }
 
 /* space out multiple fields in a column */
-.field:not(:last-child) {
+/* .field:not(:last-child) {
   margin-bottom: 0.75rem;
-}
+} */
 
 .field-content > .control:not(:last-child) {
   margin-right: 0.75rem;
@@ -250,12 +250,12 @@ select {
   background-color: var(--color-background);
 }
 
-.field-group {
+.field {
   display: grid;
   /* First column for labels, second for fields */
-  grid-template-columns: repeat(2, 6rem, 8rem);
+  grid-template-columns: 6rem 1fr;
   /* Adjust the gap size as needed */
-  gap: 10px;
+  gap: 0.75rem;
   /* align label vertically */
   align-items: center;
 }

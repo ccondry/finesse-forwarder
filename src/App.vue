@@ -2,27 +2,25 @@
   <div style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 100vh;">
     <Message title="VPN-Less Access to Finesse Desktop">
       <div style="display: flex; flex-direction: column; gap: 1rem;">
-        <div class="field-group">
-          <!-- datacenter -->
-          <Field label="Data Center:">
-            <Select
-            v-model="form.datacenter"
+        <!-- datacenter -->
+        <Field label="Data Center:">
+          <Select
+          v-model="form.datacenter"
+          >
+            <option
+            v-for="option of options"
+            :key="option.value"
+            :value="option.value"
             >
-              <option
-              v-for="option of options"
-              :key="option.value"
-              :value="option.value"
-              >
-                {{ option.label }}
-              </option>
-            </Select>
-          </Field>
-  
-          <!-- Session ID -->
-          <Field label="Session ID:">
-            <input type="text" v-model="form.sessionId" />
-          </Field>
-        </div>
+              {{ option.label }}
+            </option>
+          </Select>
+        </Field>
+
+        <!-- Session ID -->
+        <Field label="Session ID:">
+          <input type="text" v-model="form.sessionId" />
+        </Field>
 
         <!-- Submit button -->
         <div style="display: flex; justify-content: center;">
