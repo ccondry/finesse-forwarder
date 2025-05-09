@@ -65,7 +65,7 @@ export default {
         const response = await fetch(url, options);
         if (response.ok) {
           const json = await response.json();
-          const parts = json.dns1.split('.')
+          const parts = json.dns.split('.')
           parts.shift()
           const dns = parts.join('.')
           const link = `https://desktop.${dns}:8445/desktop/`;
