@@ -65,7 +65,10 @@ export default {
         const response = await fetch(url, options);
         if (response.ok) {
           const json = await response.json();
-          const link = `https://${json.dns2}:8445/desktop/`;
+          const parts = json.dns1.split('.')
+          parts.shift()
+          const dns = parts.join('.')
+          const link = `https://${dns}:8445/desktop/`;
           // use _self instead of _blank to open in same browser tab
           window.open(link, '_blank', 'noopener, noreferrer');
           // remove any previous error
